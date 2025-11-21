@@ -1,0 +1,18 @@
+
+# global modul parameters
+params:
+    testmode: 
+    token:
+    url:
+
+# list all implemented events and needed parameters for each event
+events:
+    genius_alarm:
+        ric:
+        keyword:
+        facts:
+        address:
+            street:
+            housenumber:
+            zipcode:
+            city:

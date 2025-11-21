@@ -1,0 +1,10 @@
+
+# list all implemented events
+events:
+    genius_alarm:
+    genius_selftest:
+    genius_idle:
+
+# global modul parameters
+params:
+  line:

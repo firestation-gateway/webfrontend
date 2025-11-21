@@ -1,0 +1,21 @@
+
+# global modul parameters
+params:
+    testmode: true
+    token: ""
+    url: ""
+
+# list all implemented events and needed parameters for each event
+events:
+    genius_alarm:
+        type:
+        dest:
+        text:
+    genius_selftest:
+        type:
+        dest:
+        text:
+    genius_idle:
+        type:
+        dest:
+        text:

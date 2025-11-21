@@ -1,0 +1,42 @@
+---
+producers:
+- name: Genius
+  type: genius
+  events:
+    genius_alarm: ~
+    genius_selftest: ~
+    genius_idle: ~
+  params:
+    line: 22
+consumers:
+- name: Tetracontrol
+  type: tetracontrol
+  params:
+    testmode: true
+    token: TETRACONTROL-TOKEN
+    url: http://
+  events:
+    genius_alarm:
+      type: ""
+      dest: ""
+      text: ""
+    genius_selftest:
+      type: ""
+      dest: ""
+      text: ""
+    genius_idle:
+      type: ""
+      dest: ""
+      text: ""
+- name: Connect
+  type: connect
+  params:
+    testmode: true
+    token: FEUERSOFTWARE-TOKEN
+    url: "https://connectapi.feuersoftware.com"
+  events:
+    genius_alarm:
+      ric: ""
+      keyword: ""
+      facts: ""
+...

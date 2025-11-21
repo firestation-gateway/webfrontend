@@ -1,0 +1,9 @@
+config: {}
+description: ""
+devices:
+  hostport8080:
+    connect: tcp:127.0.0.1:80
+    listen: tcp:0.0.0.0:8080
+    type: proxy
+name: proxy-8080
+project: default
