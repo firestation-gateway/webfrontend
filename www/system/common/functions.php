@@ -100,12 +100,12 @@ function get_initial_config(): array
 
 function service_restart() 
 {
-    $output = shell_exec("sudo /usr/bin/systemctl restart firestation-gateway");
+    $output = shell_exec("sudo /usr/bin/systemctl restart firestation-gateway.service");
     echo("<h1>".$output."</h1>");
 }
 function service_log() 
 {
-    $output = shell_exec("sudo journalctl -u firestation-gateway -n 20 --no-pager");
+    $output = shell_exec("sudo /usr/bin/journalctl -u firestation-gateway.service -n 20 --no-pager");
     return $output;
 }
 ?>
