@@ -26,6 +26,8 @@ include 'system/header.php';
                 }
                 if (str_starts_with($key, 'EVT|'))
                 {
+                    if ($input == 'true')      { $input = true; }
+                    elseif ($input == 'false') { $input = false; }
                     $param = explode("|",$key);
                     if (count($param) == 3) {
                         $config[$mod_type][$mod_id]['events'][$param[1]][$param[2]] = $input;
@@ -116,7 +118,7 @@ include 'system/header.php';
                 <ul>
                     <li class='c1'><div class='btn'><img title='Event löschen (NOT IMPLEMENTED YET)' src='system/img/iconmonstr-trash-can-lined.svg'></a></div></li>
                     <li class='c2'><?=$key ?></li>    
-                
+              
                     <?php foreach ($val as $key2 => $value2): ?>
                         <div id="event-list">
                         <?php if (is_array($value2)): ?>
@@ -125,7 +127,24 @@ include 'system/header.php';
                                 <label for="EVT|<?=$key.'|'.$key2.'|'.$key3 ?>"><?=$key2.':'.$key3 ?></label>
                                 <input type="text" name="EVT|<?=$key.'|'.$key2.'|'.$key3 ?>" value="<?=$value3?>" />
                             <?php endforeach; ?>
-                        <?php else: ?>
+                        <?php elseif (is_bool($value2)): ?>
+    <label><?=$key2 ?></label>
+    <div class="radio2">
+        <table>
+        <tr>
+            <td>
+            <label for="true">yes</label>
+            <input type="radio" name="EVT|<?=$key.'|'.$key2 ?>" id="true" value="true" <?php echo($value2 ? 'checked="checked"' : ''); ?>>
+            </td>
+            <td>
+            <label for="false">no</label>
+            <input type="radio" name="EVT|<?=$key.'|'.$key2 ?>" id="false" value="false" <?php echo($value2 ? '' : 'checked="checked"'); ?>>
+            </td>
+            </tr>
+        </table>
+    </div>
+
+                        <?php else: ?>  
                             <label for="EVT|<?=$key.'|'.$key2 ?>"><?=$key2 ?></label>
                             <input type="text" name="EVT|<?=$key.'|'.$key2 ?>" value="<?=$value2?>" />
                         <?php endif; ?>
